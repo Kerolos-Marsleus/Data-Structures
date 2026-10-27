@@ -9,10 +9,9 @@ class Array{
         int *array;
         size_t size;
         size_t capacity;
-        void replace(int i, int j);
         void reverse_range(size_t from, size_t to);
         void grow();
-
+        
         public:
         Array(size_t cap = DEFAULT_CAP);
         Array(const Array &second_array);
@@ -20,6 +19,7 @@ class Array{
         size_t get_size()const ;
         size_t get_capacity()const;
         void Display();
+        void replace(int i, int j);
         void Add(int number);
         bool Average(double &result)const;
         void Insert(size_t index, int number);
