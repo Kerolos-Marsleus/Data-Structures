@@ -1,4 +1,3 @@
-#include <iostream>
 
 class MyLinkedList {
     private:
@@ -15,6 +14,17 @@ class MyLinkedList {
         tail{nullptr},size{0}{
     
     }
+    ~MyLinkedList(){
+        Node* cur = head;
+        while(cur != nullptr){
+            Node* dummy = cur;
+            cur = cur->next;
+            delete dummy;
+            size--;
+        }
+    }
+    MyLinkedList(const MyLinkedList&) = delete;
+    MyLinkedList& operator=(const MyLinkedList&) = delete;
     int get(int index) {
         if(index >= size || index < 0){
             return -1 ;
@@ -81,6 +91,10 @@ class MyLinkedList {
             head= dummy->next;
             delete dummy;
             dummy = nullptr;
+            if(size == 1){
+                // the LL will become empty
+                tail = nullptr;
+            }
         }else{
             Node *cur = head;
             for(int i = 0; i < index-1; i++){
@@ -107,3 +121,7 @@ class MyLinkedList {
  * obj->addAtIndex(index,val);
  * obj->deleteAtIndex(index);
  */
+
+ int main(void){
+
+ }
