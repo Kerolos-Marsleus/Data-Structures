@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 class DoublyLinkedList {
     private:
         struct Node
@@ -130,6 +131,61 @@ class DoublyLinkedList {
         }
         std::cout << "nullptr\n";
     }
+
+    int size() const{
+        return size;
+    }
+
+    long long sum() const{
+        long long sum = 0;
+        Node* cur = head;
+        while(cur != nullptr){
+            sum += cur->val;
+            cur = cur->next;
+        }
+        return sum;
+
+    }
+
+    int max() const{
+        // return -1 if the list is empty
+        int max;
+        Node* cur = head;
+        if(head == nullptr){
+            return -1;
+        }else{
+            max = cur->val;
+            cur = cur->next;
+            while(cur != nullptr){
+                if(max < cur->val){
+                    max = cur->val;
+                }
+                cur = cur->next;
+            }
+        }
+        return max;
+    }
+    int min() const {
+        // return -1 if the list is empty
+        int min;
+        Node* cur = head;
+        if(head == nullptr){
+            return -1;
+        }else{
+            min = cur->val;
+            cur = cur->next;
+            while(cur != nullptr){
+                if(min > cur->val){
+                    min = cur->val;
+                }
+                cur = cur->next;
+            }
+        }
+        return min;
+    }
+
+
+
 };
 
 /**
@@ -143,9 +199,11 @@ class DoublyLinkedList {
  */
 
  int main(void){
-    DoublyLinkedList dl;
-    dl.addAtHead(2);
-    dl.addAtHead(4);
-    dl.addAtHead(6);
-    dl.display();
+    DoublyLinkedList l;
+l.addAtTail(1); l.addAtTail(2); l.addAtTail(3); l.addAtTail(4);
+l.deleteAtIndex(0);  l.display(); l.displayBackward();   // 2 3 4 / 4 3 2
+l.deleteAtIndex(2);  l.display(); l.displayBackward();   // 2 3   / 3 2
+l.deleteAtIndex(0); l.deleteAtIndex(0);
+l.display(); l.displayBackward();                        // empty
+l.addAtHead(9);      l.display();                        // 9
  }
