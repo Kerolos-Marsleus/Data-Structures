@@ -4,10 +4,14 @@ CPPFLAGS := -I../Task05_Linked_list
 
 SRCS := main.cpp \
         02_Queue_ll.cpp \
-        ../Task05_Linked_list/01_LC707_Singly_Linked_List.cc
+        03_Deque_ll.cpp \
+        ../Task05_Linked_list/01_LC707_Singly_Linked_List.cc \
+        ../Task05_Linked_list/02_Doubly_Linked_list.cc
 
 HDRS := 02_Queue_ll.hpp \
-        ../Task05_Linked_list/01_LC707_Singly_Linked_List.hpp
+        03_Deque_ll.hpp \
+        ../Task05_Linked_list/01_LC707_Singly_Linked_List.hpp \
+        ../Task05_Linked_list/02_Doubly_Linked_list.hpp
 
 TARGET := queue.out
 
