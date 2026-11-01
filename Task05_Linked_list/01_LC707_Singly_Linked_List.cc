@@ -23,6 +23,12 @@ int MyLinkedList::get(int index) const {
     return cur->val;
 }
 
+bool MyLinkedList::back(int &out) const{
+    if(tail == nullptr){return false;}
+    out = tail->val;
+    return true;
+}
+
 void MyLinkedList::addAtHead(int val) {
     Node* newnode = new Node;
     newnode->val = val;
